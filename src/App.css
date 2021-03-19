@@ -1,38 +1,122 @@
-.App {
+p,
+h3 {
+  margin: 10px;
+}
+
+.MainContainer {
   text-align: center;
+  overflow: hidden;
+  width: 40vw;
+  height: 80vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.MainHeading {
+  width: fit-content;
+  margin: 0px auto 30px auto;
+  padding: 10px;
+  font-weight: 500;
+  color: #324d67;
+  font-size: 3em;
+  position: relative;
+}
+.MainHeading::after {
+  position: absolute;
+  content: " ";
+  background-color: #ba5d2c;
+  width: 60%;
+  left: 20%;
+  height: 4px;
+  bottom: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* End of the Headier Part ::: startirng the Slider ::  */
+
+.SectionCenter {
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Content {
   display: flex;
-  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+.ArrowsContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.ArrowsContainer button {
+  background-color: #617d98;
+  padding: 5px;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 1.5em;
+  font-weight: bolder;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.ArrowsContainer button:hover {
+  background-color: #ba5d2c;
+}
+.Info img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: solid 4px #bcccdc;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.Info .Name {
+  color: #ba5d2c;
+  font-weight: 600;
+  margin: 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.Title {
+  color: #324d67;
+}
+.Quote {
+  color: #617d98;
+}
+.Info svg {
+  color: #ba5d2c;
+  font-size: 3em;
+  margin-top: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Slider Slides Classes ::  */
+.Active {
+  transform: translateX(0%);  
+  opacity: 1;
+}
+.LastSlide {
+  transform: translateX(-120%);
+  opacity: 0;
+}
+.NextSlide {
+  transform: translateX(120%);
+  opacity: 0;
+}
+/* End of the Slides Classes . */
+@media only screen and (max-width: 1129px) {
+  .MainContainer {
+    width: 60vw;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media only screen and (max-width: 821px) {
+  .MainContainer {
+    width: 90vw;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .MainContainer {
+    height : 105vh ;
   }
 }
