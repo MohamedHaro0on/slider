@@ -23,15 +23,14 @@ const App = () => {
     setIndex(prevState => (prevState - 1 + Data.length) % Data.length);
   }
   let Output = [], ClassName = null;
-  Data.map(({ name, image, title, quote }, idx) => {
-    console.log("THe Map Function", idx, index)
-    ClassName = index == idx ? "Active" : (idx === index - 1 || (index === 0 && idx === Data.length - 1)) ? "LastSlide" : "NextSlide";
+  Data.map(({ name, image, title, quote , id}, idx) => {
+    ClassName = index === idx ? "Active" : (idx === index - 1 || (index === 0 && idx === Data.length - 1)) ? "LastSlide" : "NextSlide";
 
     return Output.push(
-      <article className={`Content ${ClassName}`}>
+      <article className={`Content ${ClassName}`} key = {id}>
         {/* left Arrow */}
         <div className="ArrowsContainer">
-          <button onClick={DecreamentHandler}><FiChevronLeft /></button>
+          <button onClick={DecreamentHandler} aria-label = "to the Left"><FiChevronLeft /></button>
         </div>
         {/* Content */}
         <div className="Info">
@@ -43,9 +42,9 @@ const App = () => {
         </div>
         {/* Right Arrow */}
         <div className="ArrowsContainer">
-          <button onClick={IncreamentHandler}><FiChevronRight /></button>
-
+          <button onClick={IncreamentHandler} aria-label = "To the Right"><FiChevronRight /></button>
         </div>
+
       </article>
     )
   })
